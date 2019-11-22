@@ -2,7 +2,7 @@ language: java
 jdk: openjdk8
 sudo: false
 script: gradle clean test integrationTest
-before_script:
+before_install:
     - wget http://services.gradle.org/distributions/gradle-2.14.1-bin.zip
     - unzip gradle-2.14.1-bin.zip
     - export GRADLE_HOME=$PWD/gradle-2.14.1
