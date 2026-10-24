@@ -1,7 +1,7 @@
 rea-robot-simulator
 ===================
 
-[![build](https://github.com/Rob-Leggett/rea-robot-simulator/actions/workflows/build.yml/badge.svg)](https://github.com/Rob-Leggett/rea-robot-simulator/actions/workflows/build.yml)
+[![build](https://github.com/Rob-Leggett/rea-robot-simulator/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Rob-Leggett/rea-robot-simulator/actions/workflows/build.yml) [![License](https://img.shields.io/github/license/Rob-Leggett/rea-robot-simulator)](LICENSE) [![Java 25](https://img.shields.io/badge/Java-25-ED8B00?logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/25/) [![Gradle 9.8](https://img.shields.io/badge/Gradle-9.8-02303A?logo=gradle&logoColor=white)](https://gradle.org/)
 
 ***Requirements***
 
