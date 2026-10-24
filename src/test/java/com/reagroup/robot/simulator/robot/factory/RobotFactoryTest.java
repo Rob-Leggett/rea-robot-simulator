@@ -1,15 +1,15 @@
 package com.reagroup.robot.simulator.robot.factory;
 
 import com.reagroup.robot.simulator.robot.model.Robot;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class RobotFactoryTest {
 
     private RobotFactory robotFactory;
 
-    @Before
+    @BeforeEach
     public void setup() {
         robotFactory = new RobotFactory();
     }
@@ -20,6 +20,6 @@ public class RobotFactoryTest {
         final Robot robot = robotFactory.createRobot();
 
         //then
-        Assert.assertNotNull(robot);
+        Assertions.assertNotNull(robot);
     }
 }

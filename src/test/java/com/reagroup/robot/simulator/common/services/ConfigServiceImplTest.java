@@ -2,9 +2,9 @@ package com.reagroup.robot.simulator.common.services;
 
 import com.reagroup.robot.simulator.common.utils.ConfigUtils;
 import com.reagroup.robot.simulator.constants.Constants;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -20,9 +20,9 @@ public class ConfigServiceImplTest {
     @Mock
     private ConfigUtils configUtilsMock;
 
-    @Before
+    @BeforeEach
     public void setup() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
 
         configService = new ConfigServiceImpl(configUtilsMock);
     }
@@ -41,8 +41,8 @@ public class ConfigServiceImplTest {
         final Map<String, String> config = configService.getConfiguration(base);
 
         // then
-        Assert.assertNotNull(config);
-        Assert.assertEquals(1, config.size());
+        Assertions.assertNotNull(config);
+        Assertions.assertEquals(1, config.size());
     }
 
     @Test
@@ -60,8 +60,8 @@ public class ConfigServiceImplTest {
         final Map<String, String> config = configService.getConfiguration(base);
 
         // then
-        Assert.assertNotNull(config);
-        Assert.assertEquals(2, config.size());
+        Assertions.assertNotNull(config);
+        Assertions.assertEquals(2, config.size());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class ConfigServiceImplTest {
         final Map<String, String> config = configService.getConfiguration(base);
 
         // then
-        Assert.assertNotNull(config);
-        Assert.assertEquals(0, config.size());
+        Assertions.assertNotNull(config);
+        Assertions.assertEquals(0, config.size());
     }
 }

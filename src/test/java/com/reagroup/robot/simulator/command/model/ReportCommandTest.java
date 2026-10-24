@@ -2,15 +2,15 @@ package com.reagroup.robot.simulator.command.model;
 
 import com.reagroup.robot.simulator.constants.Compass;
 import com.reagroup.robot.simulator.state.model.State;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ReportCommandTest {
 
     private ReportCommand reportCommand;
 
-    @Before
+    @BeforeEach
     public void setup() {
         reportCommand = new ReportCommand();
     }
@@ -24,11 +24,11 @@ public class ReportCommandTest {
         final State state = reportCommand.execute(current);
 
         // then
-        Assert.assertNotNull(state);
-        Assert.assertEquals(true, state.isActive());
-        Assert.assertEquals(2, state.getX());
-        Assert.assertEquals(3, state.getY());
-        Assert.assertEquals(Compass.WEST, state.getCompass());
+        Assertions.assertNotNull(state);
+        Assertions.assertEquals(true, state.isActive());
+        Assertions.assertEquals(2, state.getX());
+        Assertions.assertEquals(3, state.getY());
+        Assertions.assertEquals(Compass.WEST, state.getCompass());
     }
 
     @Test
@@ -40,10 +40,10 @@ public class ReportCommandTest {
         final State state = reportCommand.execute(current);
 
         // then
-        Assert.assertNotNull(state);
-        Assert.assertEquals(false, state.isActive());
-        Assert.assertEquals(2, state.getX());
-        Assert.assertEquals(3, state.getY());
-        Assert.assertEquals(Compass.WEST, state.getCompass());
+        Assertions.assertNotNull(state);
+        Assertions.assertEquals(false, state.isActive());
+        Assertions.assertEquals(2, state.getX());
+        Assertions.assertEquals(3, state.getY());
+        Assertions.assertEquals(Compass.WEST, state.getCompass());
     }
 }

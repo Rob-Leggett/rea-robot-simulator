@@ -6,16 +6,16 @@ import com.reagroup.robot.simulator.constants.Compass;
 import com.reagroup.robot.simulator.state.model.State;
 import com.reagroup.robot.simulator.table.model.StandardTable;
 import com.reagroup.robot.simulator.table.model.Table;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 public class BasicRobotTest {
 
     private Robot robot;
 
-    @Before
+    @BeforeEach
     public void setup() {
         robot = new BasicRobot();
     }
@@ -26,11 +26,11 @@ public class BasicRobotTest {
         final State state = robot.getState();
 
         // then
-        Assert.assertNotNull(state);
-        Assert.assertFalse(state.isActive());
-        Assert.assertEquals(0, state.getX());
-        Assert.assertEquals(0, state.getY());
-        Assert.assertNull(state.getCompass());
+        Assertions.assertNotNull(state);
+        Assertions.assertFalse(state.isActive());
+        Assertions.assertEquals(0, state.getX());
+        Assertions.assertEquals(0, state.getY());
+        Assertions.assertNull(state.getCompass());
     }
 
     @Test
@@ -45,11 +45,11 @@ public class BasicRobotTest {
         // then
         final State state = robot.getState();
 
-        Assert.assertNotNull(state);
-        Assert.assertTrue(state.isActive());
-        Assert.assertEquals(2, state.getX());
-        Assert.assertEquals(2, state.getY());
-        Assert.assertEquals(Compass.NORTH, state.getCompass());
+        Assertions.assertNotNull(state);
+        Assertions.assertTrue(state.isActive());
+        Assertions.assertEquals(2, state.getX());
+        Assertions.assertEquals(2, state.getY());
+        Assertions.assertEquals(Compass.NORTH, state.getCompass());
     }
 
     @Test
@@ -64,11 +64,11 @@ public class BasicRobotTest {
         // then
         final State state = robot.getState();
 
-        Assert.assertNotNull(state);
-        Assert.assertFalse(state.isActive());
-        Assert.assertEquals(0, state.getX());
-        Assert.assertEquals(0, state.getY());
-        Assert.assertNull(state.getCompass());
+        Assertions.assertNotNull(state);
+        Assertions.assertFalse(state.isActive());
+        Assertions.assertEquals(0, state.getX());
+        Assertions.assertEquals(0, state.getY());
+        Assertions.assertNull(state.getCompass());
     }
 
     @Test

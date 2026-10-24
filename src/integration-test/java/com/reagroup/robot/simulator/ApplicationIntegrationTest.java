@@ -10,15 +10,15 @@ import com.reagroup.robot.simulator.constants.Compass;
 import com.reagroup.robot.simulator.robot.factory.RobotFactory;
 import com.reagroup.robot.simulator.state.model.State;
 import com.reagroup.robot.simulator.table.factory.TableFactory;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ApplicationIntegrationTest {
 
     private Application application;
 
-    @Before
+    @BeforeEach
     public void setup() {
         final TableFactory tableFactory = new TableFactory(new ConfigServiceImpl(new ConfigUtils()));
         final RobotFactory robotFactory = new RobotFactory();
@@ -41,11 +41,11 @@ public class ApplicationIntegrationTest {
         final State state = application.simulate(args);
 
         // then
-        Assert.assertNotNull(state);
-        Assert.assertTrue(state.isActive());
-        Assert.assertEquals(0, state.getX());
-        Assert.assertEquals(1, state.getY());
-        Assert.assertEquals(Compass.NORTH, state.getCompass());
+        Assertions.assertNotNull(state);
+        Assertions.assertTrue(state.isActive());
+        Assertions.assertEquals(0, state.getX());
+        Assertions.assertEquals(1, state.getY());
+        Assertions.assertEquals(Compass.NORTH, state.getCompass());
     }
 
     /**
@@ -62,11 +62,11 @@ public class ApplicationIntegrationTest {
         final State state = application.simulate(args);
 
         // then
-        Assert.assertNotNull(state);
-        Assert.assertTrue(state.isActive());
-        Assert.assertEquals(4, state.getX());
-        Assert.assertEquals(1, state.getY());
-        Assert.assertEquals(Compass.EAST, state.getCompass());
+        Assertions.assertNotNull(state);
+        Assertions.assertTrue(state.isActive());
+        Assertions.assertEquals(4, state.getX());
+        Assertions.assertEquals(1, state.getY());
+        Assertions.assertEquals(Compass.EAST, state.getCompass());
     }
 
     /**
@@ -83,11 +83,11 @@ public class ApplicationIntegrationTest {
         final State state = application.simulate(args);
 
         // then
-        Assert.assertNotNull(state);
-        Assert.assertTrue(state.isActive());
-        Assert.assertEquals(2, state.getX());
-        Assert.assertEquals(3, state.getY());
-        Assert.assertEquals(Compass.NORTH, state.getCompass());
+        Assertions.assertNotNull(state);
+        Assertions.assertTrue(state.isActive());
+        Assertions.assertEquals(2, state.getX());
+        Assertions.assertEquals(3, state.getY());
+        Assertions.assertEquals(Compass.NORTH, state.getCompass());
     }
 
     /**
@@ -104,11 +104,11 @@ public class ApplicationIntegrationTest {
         final State state = application.simulate(args);
 
         // then
-        Assert.assertNotNull(state);
-        Assert.assertFalse(state.isActive());
-        Assert.assertEquals(0, state.getX());
-        Assert.assertEquals(0, state.getY());
-        Assert.assertNull(state.getCompass());
+        Assertions.assertNotNull(state);
+        Assertions.assertFalse(state.isActive());
+        Assertions.assertEquals(0, state.getX());
+        Assertions.assertEquals(0, state.getY());
+        Assertions.assertNull(state.getCompass());
     }
 
     /**
@@ -125,11 +125,11 @@ public class ApplicationIntegrationTest {
         final State state = application.simulate(args);
 
         // then
-        Assert.assertNotNull(state);
-        Assert.assertFalse(state.isActive());
-        Assert.assertEquals(0, state.getX());
-        Assert.assertEquals(0, state.getY());
-        Assert.assertNull(state.getCompass());
+        Assertions.assertNotNull(state);
+        Assertions.assertFalse(state.isActive());
+        Assertions.assertEquals(0, state.getX());
+        Assertions.assertEquals(0, state.getY());
+        Assertions.assertNull(state.getCompass());
     }
 
     /**
@@ -144,6 +144,6 @@ public class ApplicationIntegrationTest {
         final State state = application.simulate(args);
 
         // then
-        Assert.assertNull(state);
+        Assertions.assertNull(state);
     }
 }

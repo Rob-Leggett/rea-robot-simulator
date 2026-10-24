@@ -1,15 +1,15 @@
 package com.reagroup.robot.simulator.command.factory;
 
 import com.reagroup.robot.simulator.command.model.*;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class CommandFactoryTest {
 
     private CommandFactory commandFactory;
 
-    @Before
+    @BeforeEach
     public void setup() {
         commandFactory = new CommandFactory();
     }
@@ -23,7 +23,7 @@ public class CommandFactoryTest {
         final Command command = commandFactory.createCommand(line);
 
         //then
-        Assert.assertNull(command);
+        Assertions.assertNull(command);
     }
 
     @Test
@@ -35,8 +35,8 @@ public class CommandFactoryTest {
         final Command command = commandFactory.createCommand(line);
 
         //then
-        Assert.assertNotNull(command);
-        Assert.assertSame(PlaceCommand.class, command.getClass());
+        Assertions.assertNotNull(command);
+        Assertions.assertSame(PlaceCommand.class, command.getClass());
     }
 
     @Test
@@ -48,8 +48,8 @@ public class CommandFactoryTest {
         final Command command = commandFactory.createCommand(line);
 
         //then
-        Assert.assertNotNull(command);
-        Assert.assertSame(PlaceCommand.class, command.getClass());
+        Assertions.assertNotNull(command);
+        Assertions.assertSame(PlaceCommand.class, command.getClass());
     }
 
     @Test
@@ -61,8 +61,8 @@ public class CommandFactoryTest {
         final Command command = commandFactory.createCommand(line);
 
         //then
-        Assert.assertNotNull(command);
-        Assert.assertSame(MoveCommand.class, command.getClass());
+        Assertions.assertNotNull(command);
+        Assertions.assertSame(MoveCommand.class, command.getClass());
     }
 
     @Test
@@ -74,8 +74,8 @@ public class CommandFactoryTest {
         final Command command = commandFactory.createCommand(line);
 
         //then
-        Assert.assertNotNull(command);
-        Assert.assertSame(RotateCommand.class, command.getClass());
+        Assertions.assertNotNull(command);
+        Assertions.assertSame(RotateCommand.class, command.getClass());
     }
 
     @Test
@@ -87,8 +87,8 @@ public class CommandFactoryTest {
         final Command command = commandFactory.createCommand(line);
 
         //then
-        Assert.assertNotNull(command);
-        Assert.assertSame(RotateCommand.class, command.getClass());
+        Assertions.assertNotNull(command);
+        Assertions.assertSame(RotateCommand.class, command.getClass());
     }
 
     @Test
@@ -100,7 +100,7 @@ public class CommandFactoryTest {
         final Command command = commandFactory.createCommand(line);
 
         //then
-        Assert.assertNotNull(command);
-        Assert.assertSame(ReportCommand.class, command.getClass());
+        Assertions.assertNotNull(command);
+        Assertions.assertSame(ReportCommand.class, command.getClass());
     }
 }

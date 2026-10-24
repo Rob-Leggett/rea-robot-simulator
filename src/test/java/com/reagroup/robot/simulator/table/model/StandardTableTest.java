@@ -1,7 +1,7 @@
 package com.reagroup.robot.simulator.table.model;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class StandardTableTest {
 
@@ -11,8 +11,8 @@ public class StandardTableTest {
         final Table table = new StandardTable(5, 5);
 
         // then
-        Assert.assertEquals(5, table.getHeight());
-        Assert.assertEquals(5, table.getWidth());
+        Assertions.assertEquals(5, table.getHeight());
+        Assertions.assertEquals(5, table.getWidth());
     }
 
     @Test
@@ -24,7 +24,7 @@ public class StandardTableTest {
         final boolean isOn = table.isOn(3, 2);
 
         // then
-        Assert.assertTrue(isOn);
+        Assertions.assertTrue(isOn);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class StandardTableTest {
         final boolean isOn = table.isOn(1, 5);
 
         // then
-        Assert.assertFalse(isOn);
+        Assertions.assertFalse(isOn);
     }
 
     @Test
@@ -48,6 +48,6 @@ public class StandardTableTest {
         final boolean isOn = table.isOn(4, 1);
 
         // then
-        Assert.assertFalse(isOn);
+        Assertions.assertFalse(isOn);
     }
 }

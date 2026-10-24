@@ -3,15 +3,15 @@ package com.reagroup.robot.simulator.command.services;
 import com.reagroup.robot.simulator.command.factory.CommandFactory;
 import com.reagroup.robot.simulator.command.model.Command;
 import com.reagroup.robot.simulator.common.services.FileService;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,15 +35,7 @@ public class CommandFileServiceImpl implements FileService<Command> {
 
     final List<Command> commands = new ArrayList<>();
 
-    FileInputStream fileInputStream = null;
-    InputStreamReader inputStreamReader = null;
-    BufferedReader reader = null;
-
-    try {
-      fileInputStream = new FileInputStream(new File(filePath));
-      inputStreamReader = new InputStreamReader(fileInputStream);
-      reader = new BufferedReader(inputStreamReader);
-
+    try (BufferedReader reader = Files.newBufferedReader(Path.of(filePath), StandardCharsets.UTF_8)) {
       reader.lines().forEach(line -> {
         final Command command = commandFactory.createCommand(line);
 
@@ -52,12 +44,8 @@ public class CommandFileServiceImpl implements FileService<Command> {
           commands.add(command);
         }
       });
-    } catch (FileNotFoundException e) {
+    } catch (IOException | UncheckedIOException e) {
       LOG.error("Unable to process commands");
-    } finally {
-      IOUtils.closeQuietly(reader);
-      IOUtils.closeQuietly(inputStreamReader);
-      IOUtils.closeQuietly(fileInputStream);
     }
 
     return commands;

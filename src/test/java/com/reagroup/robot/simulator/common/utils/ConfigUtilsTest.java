@@ -1,8 +1,8 @@
 package com.reagroup.robot.simulator.common.utils;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public class ConfigUtilsTest {
 
     private ConfigUtils configUtils;
 
-    @Before
+    @BeforeEach
     public void setup() {
         configUtils = new ConfigUtils();
     }
@@ -25,8 +25,8 @@ public class ConfigUtilsTest {
                 configUtils.loadConfigurationResource(fileName);
 
         // then
-        Assert.assertNotNull(config);
-        Assert.assertEquals(2, config.size());
+        Assertions.assertNotNull(config);
+        Assertions.assertEquals(2, config.size());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class ConfigUtilsTest {
                 configUtils.loadConfigurationResource(fileName);
 
         // then
-        Assert.assertNotNull(config);
-        Assert.assertEquals(0, config.size());
+        Assertions.assertNotNull(config);
+        Assertions.assertEquals(0, config.size());
     }
 }

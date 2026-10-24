@@ -3,9 +3,9 @@ package com.reagroup.robot.simulator.table.factory;
 import com.reagroup.robot.simulator.common.services.ConfigService;
 import com.reagroup.robot.simulator.constants.Constants;
 import com.reagroup.robot.simulator.table.model.Table;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -20,9 +20,9 @@ public class TableFactoryTest {
     @Mock
     private ConfigService configServiceMock;
 
-    @Before
+    @BeforeEach
     public void setup() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
 
         tableFactory = new TableFactory(configServiceMock);
     }
@@ -40,7 +40,7 @@ public class TableFactoryTest {
         final Table table = tableFactory.createTable();
 
         // then
-        Assert.assertNotNull(table);
+        Assertions.assertNotNull(table);
     }
 
     @Test
@@ -54,6 +54,6 @@ public class TableFactoryTest {
         final Table table = tableFactory.createTable();
 
         // then
-        Assert.assertNull(table);
+        Assertions.assertNull(table);
     }
 }

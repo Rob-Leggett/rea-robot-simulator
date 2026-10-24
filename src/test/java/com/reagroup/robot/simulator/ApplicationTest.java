@@ -9,9 +9,9 @@ import com.reagroup.robot.simulator.robot.model.BasicRobot;
 import com.reagroup.robot.simulator.state.model.State;
 import com.reagroup.robot.simulator.table.factory.TableFactory;
 import com.reagroup.robot.simulator.table.model.StandardTable;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -32,9 +32,9 @@ public class ApplicationTest {
     @Mock
     private FileService<Command> commandFileServiceMock;
 
-    @Before
+    @BeforeEach
     public void setup() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
 
         application = new Application(tableFactoryMock, robotFactoryMock, commandFileServiceMock);
     }
@@ -67,9 +67,9 @@ public class ApplicationTest {
         application.simulate(args);
 
         // then
-        Mockito.verifyZeroInteractions(tableFactoryMock);
-        Mockito.verifyZeroInteractions(robotFactoryMock);
-        Mockito.verifyZeroInteractions(commandFileServiceMock);
+        Mockito.verifyNoInteractions(tableFactoryMock);
+        Mockito.verifyNoInteractions(robotFactoryMock);
+        Mockito.verifyNoInteractions(commandFileServiceMock);
     }
 
     @Test
@@ -88,11 +88,11 @@ public class ApplicationTest {
         final State state = application.simulate(args);
 
         // then
-        Assert.assertNotNull(state);
-        Assert.assertTrue(state.isActive());
-        Assert.assertEquals(2, state.getX());
-        Assert.assertEquals(3, state.getY());
-        Assert.assertEquals(Compass.NORTH, state.getCompass());
+        Assertions.assertNotNull(state);
+        Assertions.assertTrue(state.isActive());
+        Assertions.assertEquals(2, state.getX());
+        Assertions.assertEquals(3, state.getY());
+        Assertions.assertEquals(Compass.NORTH, state.getCompass());
     }
 
     @Test
@@ -104,6 +104,6 @@ public class ApplicationTest {
         final State state = application.simulate(args);
 
         // then
-        Assert.assertNull(state);
+        Assertions.assertNull(state);
     }
 }

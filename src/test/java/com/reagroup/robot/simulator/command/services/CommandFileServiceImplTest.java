@@ -2,9 +2,9 @@ package com.reagroup.robot.simulator.command.services;
 
 import com.reagroup.robot.simulator.command.factory.CommandFactory;
 import com.reagroup.robot.simulator.command.model.Command;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -17,9 +17,9 @@ public class CommandFileServiceImplTest {
     @Mock
     private CommandFactory commandFactoryMock;
 
-    @Before
+    @BeforeEach
     public void setup() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
 
         commandFileService = new CommandFileServiceImpl(commandFactoryMock);
     }
@@ -33,8 +33,8 @@ public class CommandFileServiceImplTest {
         final List<Command> commands = commandFileService.process(filePath);
 
         // then
-        Assert.assertNotNull(commands);
-        Assert.assertEquals(0, commands.size());
+        Assertions.assertNotNull(commands);
+        Assertions.assertEquals(0, commands.size());
     }
 
     @Test
@@ -46,7 +46,7 @@ public class CommandFileServiceImplTest {
         final List<Command> commands = commandFileService.process(filePath);
 
         // then
-        Assert.assertNotNull(commands);
-        Assert.assertEquals(0, commands.size());
+        Assertions.assertNotNull(commands);
+        Assertions.assertEquals(0, commands.size());
     }
 }
